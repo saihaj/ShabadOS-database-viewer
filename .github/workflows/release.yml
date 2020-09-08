@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-frontend:
+    name: Build and Push Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    - name: Build Docker Image
+      run: docker build -t shabados/database-viewer-frontend:${GITHUB_SHA} .
+
+    - name: Publish to Docker Hub
+      run: |
+        docker push shabados/database-viewer-frontend:${GITHUB_SHA}
+        docker tag shabados/database-viewer-frontend:${GITHUB_SHA} shabados/database-viewer-frontend:latest
+        docker push shabados/database-viewer-frontend:latest
+
+  build-backend:
+    name: Build and Push Backend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    - name: Build Docker Image
+      run: docker build -t shabados/database-viewer-backend:${GITHUB_SHA} .
+
+    - name: Publish to Docker Hub
+      run: |
+        docker push shabados/database-viewer-backend:${GITHUB_SHA}
+        docker tag shabados/database-viewer-backend:${GITHUB_SHA} shabados/database-viewer-backend:latest
+        docker push shabados/database-viewer-backend:latest

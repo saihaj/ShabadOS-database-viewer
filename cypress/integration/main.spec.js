@@ -82,8 +82,6 @@ describe('Source: Zindagi Nama', () => {
 
   it('Open Line Viewer', () => cy.GoToLineViewer( 'Dr. Ganda Singh' ))
 
-  it('Go to Next Line', () => cy.GoToNextLine( 'mIdwx' ))
-
   it('Go back home', () => cy.GoToSourceView( 'h¤k pRsqwx ^ud-pRsqI cUM kunMd [' ))  
 
 })
@@ -126,8 +124,6 @@ describe('Source: Ardaas', () => {
   })
 
   it('Open Line Viewer', () => cy.GoToLineViewer( 'SGPC' ))
-
-  it('Go to Next Line', () => cy.GoToNextLine( 'Axif`q' ))
 
   it('Go back home', () => cy.GoToSourceView( 'is`KW dw mn nIvW, mq au~cI, mq dw rwKw Awip vwihgurU [' ))
 
