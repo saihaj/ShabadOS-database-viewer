@@ -118,7 +118,7 @@ const LineView = ( {
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} allowChanges>
         <div className="header">
           <div className="left buttons">
-            <LinkButton className="button" icon="level-up-alt" to={sourceViewUrl} data-cy="go-to-home-button"/>
+            <LinkButton className="button" icon="level-up-alt" to={sourceViewUrl} data-cy="go-to-home-button" />
             <LinkButton className="button" icon="caret-left" disabled={!previousLineUrl} replace to={previousLineUrl} />
           </div>
 
@@ -144,7 +144,7 @@ const LineView = ( {
 
           <div className="right buttons">
 
-            <LinkButton className="button" icon="caret-right" replace to={nextLineUrl} data-cy="go-to-next-line-button"/>
+            <LinkButton className="button" icon="caret-right" replace to={nextLineUrl} data-cy="go-to-next-line-button" />
 
             <Popover
               isOpen={menuOpen}
@@ -161,7 +161,7 @@ const LineView = ( {
                 )}
               position="bottom"
             >
-              <IconButton icon="ellipsis-v" onClick={toggleMenu} data-cy="menu-button-dots"/>
+              <IconButton icon="ellipsis-v" onClick={toggleMenu} data-cy="menu-button-dots" />
             </Popover>
 
           </div>
