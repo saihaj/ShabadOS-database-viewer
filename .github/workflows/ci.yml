@@ -32,6 +32,9 @@ jobs:
     - name: Install npm dependencies
       run: npm ci
 
+    - name: Lint
+      run: npm run lint
+
     - name: Test
       run: npm run test
 
@@ -42,7 +45,7 @@ jobs:
         name: cypress-videos
         path: cypress/videos
 
-    - name: Upload Screenshots (If tests fails)
+    - name: Upload Screenshots
       if: failure()
       uses: actions/upload-artifact@v1
       with:
