@@ -14,7 +14,10 @@
     "test": "cypress open",
     "test:headless": "cypress run",
     "ci": "start-server-and-test start :3000 test:headless",
-    "ci:dev": "start-server-and-test start :3000 test"
+    "ci:dev": "start-server-and-test start :3000 test",
+    "lint:frontend":"cd frontend && npm run lint",
+    "lint:backend":"cd backend && npm run lint",
+    "lint":"npm-run-all -l -p lint:*"
   },
   "repository": {
     "type": "git",
